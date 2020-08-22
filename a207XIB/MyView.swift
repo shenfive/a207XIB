@@ -16,21 +16,14 @@ class MyView: UIView {
         super.init(frame: frame)
         setup()
     }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
-        fatalError("init(coder:) has not been implemented")     
     }
-    
     func setup(){
         view = loadViewFromNib()
-        view.autoresizingMask = [ UIView.AutoresizingMask.flexibleWidth,
-            UIView.AutoresizingMask.flexibleHeight ]
         self.addSubview(view)
     }
-    
-    
     func loadViewFromNib() -> UIView {
         let nib = UINib(nibName: "MyView", bundle: nil )
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
